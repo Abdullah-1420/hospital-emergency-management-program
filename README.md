@@ -27,9 +27,9 @@ Facilitate and speed the movement of patients and reduce the use of paper docume
 
 ### Administration
 
--Add, delete, modify and display employees
--Review of the patient's previous cases
--Knowing the patient's presence
+- Add, delete, modify and display employees
+- Review of the patient's previous cases
+- Knowing the patient's presence
 
 
 ### Reception
