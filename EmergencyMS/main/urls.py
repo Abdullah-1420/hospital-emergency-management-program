@@ -13,4 +13,5 @@ urlpatterns = [
     path('uncompleted_diagnosis' , views.list_uncompleted_diagnosis , name = 'uncompleted_diagnosis'),
     path('completed_diagnosis' , views.list_completed_diagnosis , name = 'completed_diagnosis'),
     path('update_diagnosis/<diagnosis_id>' , views.add_diagnosis_by_doctor , name = 'update_diagnosis'),
+    path('add_user_to_group/<group_name>/<user_id>' , views.add_user_to_group , name = 'add_user_to_group'),
 ]

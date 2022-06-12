@@ -1,4 +1,5 @@
 
+from email.headerregistry import Group
 from django.shortcuts import render
 from rest_framework import status
 from rest_framework.decorators import api_view , authentication_classes , permission_classes
@@ -8,7 +9,7 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from .models import Patients , Diagnosis
 from .serializer import PatientsSerializers , DiagnosisSerializers , DiagnosisSerializersRead
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User , Group
 
 
 # to add new patients
@@ -185,6 +186,25 @@ def add_diagnosis_by_doctor(request:Request , diagnosis_id ):
     else:
         print(update_diagnosis.errors)
         return Response({"msg": "bad request, cannot update"} , status=status.HTTP_400_BAD_REQUEST)
+
+
+@api_view(['POST'])
+@authentication_classes([JWTAuthentication])
+@permission_classes([IsAuthenticated])
+def add_user_to_group(request: Request , group_name,  user_id):
+
+    if not request.user.is_authenticated or not request.user.has_perm('main.add_diagnosis'):
+        return Response("Not Allowed", status = status.HTTP_400_BAD_REQUEST)
+
+    user = User.objects.get(id=user_id)
+
+    if user.groups.filter(name=group_name).exists():
+        return Response({"msg": "This user already in Group " + group_name} , status=status.HTTP_409_CONFLICT)
+
+    else:
+        group = Group.objects.get(name=group_name)
+        user.groups.add(group)
+        return Response({"msg": "Add user In Group " + group_name + "successfully"} , status=status.HTTP_200_OK)
 
 
 
