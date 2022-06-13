@@ -52,6 +52,6 @@ Facilitate and speed the movement of patients and reduce the use of paper docume
 
 - Initial Diagnostic Review
 - Writing and updateing the final diagnosis of the patient and his health condition
-- writing notes
+- writing prescription
 - end status
 
