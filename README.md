@@ -35,6 +35,7 @@ Facilitate and speed the movement of patients and reduce the use of paper docume
 ### Reception
 
 - Registration of the patient's personal data
+- View patients
 - Sending the patient to the initial diagnosis
 
 
