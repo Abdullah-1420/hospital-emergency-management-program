@@ -11,8 +11,11 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 import os
+import django_heroku
 from pathlib import Path
 from datetime import timedelta
+
+import django
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +30,7 @@ SECRET_KEY = 'django-insecure-91la9xw9&qpett-shveoclpfphg1f6y!2u@*@*)3x5ir1n8x8h
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [] #'emergencyms.herokuapp.com'
+ALLOWED_HOSTS = ['emergencyms.herokuapp.com'] #'emergencyms.herokuapp.com'
 
 
 # Application definition
@@ -80,10 +83,10 @@ WSGI_APPLICATION = 'EmergencyMS.wsgi.application'
 DATABASES = {
     'default': {
       'ENGINE': 'django.db.backends.postgresql_psycopg2',
-      'NAME': 'EmergencyDB',
-      'USER': 'postgres',
-      'PASSWORD': '123456',
-      'HOST': 'localhost',
+      'NAME': 'dbr5smgd2811h3',
+      'USER': 'nglhwvkbmognvq',
+      'PASSWORD': 'fc915fedbfb2e63eadb724b42fb3f6ef388cf22c9ceb2d96d0b1bd8c48189c8b',
+      'HOST': 'ec2-52-73-184-24.compute-1.amazonaws.com',
       'PORT': '5432',
     }
 }
@@ -125,7 +128,7 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATIC_URL = 'static/'
-
+django_heroku.settings(locals())
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
