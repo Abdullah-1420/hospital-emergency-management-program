@@ -2,7 +2,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
+#some comment
 
 
 class Patients (models.Model):
@@ -25,8 +25,7 @@ class Patients (models.Model):
 
 class Diagnosis(models.Model):
      '''
-     # taple for diagnosis
-
+     taple for diagnosis
      '''
      patients = models.ForeignKey(Patients , on_delete=models.DO_NOTHING)
      nurce = models.ForeignKey(User , on_delete=models.DO_NOTHING)

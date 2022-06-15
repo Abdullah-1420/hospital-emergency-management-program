@@ -11,11 +11,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 import os
-import django_heroku
 from pathlib import Path
 from datetime import timedelta
-
-import django
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,13 +22,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-91la9xw9&qpett-shveoclpfphg1f6y!2u@*@*)3x5ir1n8x8h'
+# SECRET_KEY = 'django-insecure-91la9xw9&qpett-shveoclpfphg1f6y!2u@*@*)3x5ir1n8x8h'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'cg#p$g+j9tax!#a3cup@1$8obt2_+&k3q+pmu)5%asj6yjpkag')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+DEBUG = os.environ.get('DJANGO_DEBUG', True)
 
-ALLOWED_HOSTS = ['emergencyms.herokuapp.com'] #'emergencyms.herokuapp.com'
+ALLOWED_HOSTS = ['emergencyms.herokuapp.com','127.0.0.1']
 
+#'emergencyms.herokuapp.com'
+'''
+276e86562942826cff3647c581b9fb078213cb65e81d79e17ea
+751993a1e9176ab1591e9bae6aa82884b6cb9708ce217dad2127350d9cdf6b4e297
+67575e43ac10d872b7413ec2f7e4595bec070d95cc6a38d427a62fd78c8ca7079db964256b7958
+c411acd544f42c3bf508f585d7823ae37fe86f763b952729c62aca9ebed62631a10e50cdc92b0a04c97e9c6
+cbd12b8c571b12acb4cf56cf68a4fb830d145eff124104bfb74d6d12f4faadd54ebae5c72e771e548b4a2799e
+0e1dc931ffd205616414e543385d876c69669c2f602ccd9831107c5d6ade35b3d1a053f076914a9fa8831d739b
+c861c1f919a07f48957ad14c4e66c1362d9059d5efbef389e4ceb1f8fc8284852a
+'''
 
 # Application definition
 
@@ -83,10 +92,10 @@ WSGI_APPLICATION = 'EmergencyMS.wsgi.application'
 DATABASES = {
     'default': {
       'ENGINE': 'django.db.backends.postgresql_psycopg2',
-      'NAME': 'dbr5smgd2811h3',
-      'USER': 'nglhwvkbmognvq',
-      'PASSWORD': 'fc915fedbfb2e63eadb724b42fb3f6ef388cf22c9ceb2d96d0b1bd8c48189c8b',
-      'HOST': 'ec2-52-73-184-24.compute-1.amazonaws.com',
+      'NAME': 'EmergencyDB',
+      'USER': 'postgres',
+      'PASSWORD': '123456',
+      'HOST': 'localhost',
       'PORT': '5432',
     }
 }
@@ -128,7 +137,7 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATIC_URL = 'static/'
-django_heroku.settings(locals())
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -138,3 +147,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SIMPLE_JWT = {
 'ACCESS_TOKEN_LIFETIME': timedelta(days=30)
 }
+
+
+# Heroku: Update database configuration from $DATABASE_URL.
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
