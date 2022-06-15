@@ -28,6 +28,9 @@ Facilitate and speed the movement of patients and reduce the use of paper docume
 ### Administration
 
 - Add, delete, modify and display employees
+-  Add, delete, modify and display patiens
+-   Add, delete, modify and display diagnosis
+-  Add user to appropriate group
 - Review of the patient's previous cases
 - Knowing the patient's presence
 
@@ -35,7 +38,7 @@ Facilitate and speed the movement of patients and reduce the use of paper docume
 ### Reception
 
 - Registration of the patient's personal data
-- View patients
+- View all patients
 - Sending the patient to the initial diagnosis
 
 
@@ -52,6 +55,5 @@ Facilitate and speed the movement of patients and reduce the use of paper docume
 
 - Initial Diagnostic Review
 - Writing and updateing the final diagnosis of the patient and his health condition
-- writing prescription
 - end status
-
+- writing prescription
