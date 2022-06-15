@@ -21,9 +21,9 @@ Facilitate and speed the movement of patients and reduce the use of paper docume
 - Type of users: 
 
 - Administration
--Doctors
--Nurses
--Reception
+- Doctors
+- Nurses
+- Reception
 
 ### Administration
 
