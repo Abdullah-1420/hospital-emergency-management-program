@@ -39,12 +39,14 @@ Facilitate and speed the movement of patients and reduce the use of paper docume
 
 - Registration of the patient's personal data
 - View all patients
+- Search the patients by NationalID
 - Sending the patient to the initial diagnosis
 
 
 ### nurses
 
 - View patient data
+- Search the patients by NationalID
 - Writing the initial diagnosis of the patient
 - Sending the patient to the doctor
 
