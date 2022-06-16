@@ -2,7 +2,8 @@
 
 
 # Emergency-management-system
-## Idea: https://emergencyms.herokuapp.com/
+https://emergencyms.herokuapp.com/
+## Idea: 
 Emergency management and patient management system .
 
 A system that helps to deal with the movement of patients in the emergency department, through the reception, then the nurses, and finally the doctor.
