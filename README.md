@@ -1,7 +1,7 @@
 
 
 
-# hospital-emergency-management-system
+# Emergency-management-system
 ## Idea: https://emergencyms.herokuapp.com/
 Emergency management and patient management system .
 
